@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:shop_ai/view/home.dart';
+import 'theme.dart';
 
 void main() {
   runApp(const MainApp());
@@ -9,12 +11,11 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
+    return MaterialApp(
+      home: const Scaffold(
+        body: Center(child: HomeView()),
       ),
+      theme: AppTheme.lightTheme,
     );
   }
 }
