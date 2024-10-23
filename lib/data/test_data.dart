@@ -1,5 +1,5 @@
 // lib/utils/test_data.dart
-import 'package:shop_ai/models/grocery_item.dart';
+import 'package:shop_ai/models/shopping_item.dart';
 import 'package:shop_ai/services/storage_service.dart';
 
 class TestData {
