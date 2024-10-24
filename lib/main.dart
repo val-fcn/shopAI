@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:shop_ai/env/env.dart';
 import 'package:shop_ai/services/storage_service.dart';
+import 'package:shop_ai/theme.dart';
+import 'package:shop_ai/view/auth_screen.dart';
 import 'package:shop_ai/view/home_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -9,7 +11,7 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Supabase.initialize(
-    url: Env.suparbaseUrl,
+    url: Env.supabaseUrl,
     anonKey: Env.supabaseKey,
   );
   final prefs = await SharedPreferences.getInstance();
@@ -18,15 +20,19 @@ Future<void> main() async {
 }
 
 class MainApp extends StatelessWidget {
-  final StorageService storageService;
   const MainApp({super.key, required this.storageService});
+  final StorageService storageService;
+
+  final bool isLoggedIn = false;
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(primarySwatch: Colors.blue),
+      theme: AppTheme.lightTheme,
       home: Scaffold(
-        body: Center(child: HomeScreen(storageService: storageService)),
+        body: Center(
+          child: AuthScreen(storageService: storageService),
+        ),
       ),
     );
   }

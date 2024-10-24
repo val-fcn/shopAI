@@ -1,11 +1,11 @@
 import "package:flutter/material.dart";
 
 class AppTheme {
-  static const Color backgroundColor = Color(0xFFABD1C6);
-  static const Color headlineColor = Color(0xFF004643);
-  static const Color paragraphColor = Color(0xFF004643);
-  static const Color buttonColor = Color(0xFFF9BC60);
-  static const Color buttonTextColor = Color(0xFF001E1D);
+  static const Color backgroundColor = Color(0xFFDBD3D3);
+  static const Color headlineColor = Color(0xFF091057);
+  static const Color paragraphColor = Color(0xFF091057);
+  static const Color buttonColor = Color(0xFF024CAA);
+  static const Color buttonTextColor = Color(0xFFDBD3D3);
 
   static final ThemeData lightTheme = ThemeData(
     brightness: Brightness.light,
