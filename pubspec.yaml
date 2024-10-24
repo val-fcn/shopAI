@@ -17,6 +17,7 @@ dependencies:
   shared_preferences: ^2.3.2
   uuid: ^4.5.1
   dart_openai: ^5.1.0
+  supabase_flutter: ^2.8.0
 
 dev_dependencies:
   flutter_test:

@@ -8,7 +8,7 @@ import 'package:shop_ai/models/shopping_item.dart';
 class OpenAIService {
   final String apiKey = Env.openAIKey;
   static final String baseUrl = Env.apiUrl;
-  final List<Map<String, dynamic>> _previousIngredients = [];
+  //final List<Map<String, dynamic>> _previousIngredients = [];
 
   Future<List<ShoppingItem>> analyzeFile(File imageFile) async {
     final bytes = await imageFile.readAsBytes();
