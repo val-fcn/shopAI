@@ -1,6 +1,4 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:shop_ai/services/auth_service.dart';
 import 'package:shop_ai/services/storage_service.dart';
 import 'package:shop_ai/view/home_screen.dart';
 import 'package:supabase_auth_ui/supabase_auth_ui.dart';
@@ -13,7 +11,6 @@ class AuthScreen extends StatefulWidget {
 }
 
 class _AuthScreenState extends State<AuthScreen> {
-  final _formKey = GlobalKey<FormState>();
   final userEmailController = TextEditingController();
   final userPasswordController = TextEditingController();
 
