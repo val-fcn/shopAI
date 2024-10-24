@@ -3,13 +3,15 @@ import 'package:uuid/uuid.dart';
 class ShoppingItem {
   final String id;
   final String name;
-  final String quantity;
+  final num quantity;
+  final String unit;
   bool isChecked;
 
   ShoppingItem({
     String? id,
     required this.name,
     required this.quantity,
+    required this.unit,
     this.isChecked = false,
   }) : id = id ?? const Uuid().v4();
 
@@ -18,16 +20,17 @@ class ShoppingItem {
       'id': id,
       'name': name,
       'quantity': quantity,
+      'unit': unit,
       'isChecked': isChecked,
     };
   }
 
   factory ShoppingItem.fromJson(Map<String, dynamic> json) {
     return ShoppingItem(
-      id: json['id'],
       name: json['name'],
       quantity: json['quantity'],
-      isChecked: json['isChecked'],
+      unit: json['unit'],
+      isChecked: json['isChecked'] ?? false,
     );
   }
 }

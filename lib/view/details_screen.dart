@@ -56,7 +56,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                 final item = _currentList.items[index];
                 return CheckboxListTile(
                   title: Text(item.name),
-                  subtitle: Text(item.quantity),
+                  subtitle: Text("${item.quantity.toString()} ${item.unit}"),
                   value: item.isChecked,
                   onChanged: (_) => _toggleItem(item),
                 );

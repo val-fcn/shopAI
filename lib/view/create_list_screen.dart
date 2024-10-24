@@ -6,14 +6,14 @@ import '../services/ai_service.dart';
 import '../services/storage_service.dart';
 
 class CreateListScreen extends StatefulWidget {
-  final StorageService storageService;
-  final AiService aiService;
-
   const CreateListScreen({
     super.key,
     required this.storageService,
     required this.aiService,
   });
+
+  final StorageService storageService;
+  final OpenAIService aiService;
 
   @override
   State<CreateListScreen> createState() => _CreateListScreenState();
@@ -37,10 +37,11 @@ class _CreateListScreenState extends State<CreateListScreen> {
       });
 
       try {
-        final items = await widget.aiService.analyzeImage(_image!);
+        final items = await widget.aiService.analyzeFile(_image!);
         setState(() {
           _detectedItems = items;
           _isAnalyzing = false;
+          print("_____Liste $items");
         });
       } catch (e) {
         setState(() {
@@ -163,7 +164,7 @@ class _CreateListScreenState extends State<CreateListScreen> {
                   final item = _detectedItems[index];
                   return ListTile(
                     title: Text(item.name),
-                    subtitle: Text(item.quantity),
+                    subtitle: Text('${item.quantity} ${item.unit}'),
                     trailing: IconButton(
                       icon: const Icon(Icons.delete),
                       onPressed: () {

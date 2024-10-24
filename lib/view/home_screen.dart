@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:shop_ai/data/test_data.dart';
 import 'package:shop_ai/models/shopping_item.dart';
 import 'package:shop_ai/services/ai_service.dart';
 import 'package:shop_ai/services/storage_service.dart';
 import 'package:shop_ai/view/create_list_screen.dart';
-//import 'package:shop_ai/view/add_list.dart';
 import 'package:shop_ai/view/details_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -30,18 +28,9 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Future<void> _loadLists() async {
     final lists = await widget.storageService.getLists();
-    if (lists.isEmpty) {
-      // Charger les données de test si aucune donnée n'existe
-      await TestData.loadTestData(widget.storageService);
-      final testLists = await widget.storageService.getLists();
-      setState(() {
-        _shoppingLists = testLists;
-      });
-    } else {
-      setState(() {
-        _shoppingLists = lists;
-      });
-    }
+    setState(() {
+      _shoppingLists = lists;
+    });
   }
 
   @override
@@ -92,7 +81,7 @@ class _HomeScreenState extends State<HomeScreen> {
             MaterialPageRoute(
               builder: (context) => CreateListScreen(
                 storageService: widget.storageService,
-                aiService: AiService(),
+                aiService: OpenAIService(),
               ),
             ),
           ).then((_) => _loadLists());

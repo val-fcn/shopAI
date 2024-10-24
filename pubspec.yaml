@@ -1,6 +1,6 @@
 name: shop_ai
 description: "A new Flutter project."
-publish_to: 'none'
+publish_to: "none"
 version: 0.1.0
 
 environment:
@@ -16,6 +16,7 @@ dependencies:
   http: ^1.2.2
   shared_preferences: ^2.3.2
   uuid: ^4.5.1
+  dart_openai: ^5.1.0
 
 dev_dependencies:
   flutter_test:
